@@ -39,7 +39,7 @@ defineProps({
 					<div class="row">
 						<div class="col">
 							<span class="sharethis-inline-share-buttons hidden"></span>
-							<h2 class="">{{ news.title }}</h2>
+							<h2 class="newsTitle">{{ news.title }}</h2>
 							<div class="row">
 								<div class="col">
 									<h6 class="pb-1" style="color: #999999;"> 
@@ -53,7 +53,7 @@ defineProps({
 							<div class="row">
 								
 								<div class="col-12 og:description detailsStyle">
-									<!-- News Body -->
+                                    <p v-html="news.nBody"></p>
 									<h5 class="py-3 text-muted"> 
 										<span>
 											<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
@@ -82,6 +82,12 @@ defineProps({
 </template>
 
 <style>
+@import url('https://fonts.maateen.me/solaiman-lipi/font.css');
+a,h1,h2,h3,h4,h5,h6,p,span,li{
+    font-family: 'SolaimanLipi', sans-serif !important;
+}h2.newsTitle {
+    font-size: 30px;
+}
 		.cstomWidth {
 			width: 80%;
 		}
@@ -121,7 +127,7 @@ defineProps({
 			text-decoration: none;
 		}
 		.topboxstyle a:hover {
-			background-color: #e5f7ff;
+			background-color: #9bcde2;
 		}
 		.topboxstyle p {
 			font-size: 16px;
