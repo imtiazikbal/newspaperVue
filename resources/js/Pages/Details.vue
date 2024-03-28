@@ -1,4 +1,6 @@
 <script setup>
+import Navbar from '../Components/Header/NavBar.vue';
+
 
 
 defineProps({
@@ -8,7 +10,12 @@ defineProps({
 
 
 <template>
-    
+
+
+<!-- header start -->
+<Navbar/>
+<!-- header end -->
+
 	<!-- Breadcrumb Breadcrumb -->
 		<section class="bg-light">
 			<div class="container p-0">

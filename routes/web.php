@@ -127,6 +127,7 @@ Route::post('/store/news', [NewsController::class, 'store']);
 Route::get('/edit/news/{news}', [NewsController::class, 'edit']);
 Route::post('/update/news/{news}', [NewsController::class, 'update']);
 Route::delete('/destroy/news/{news}', [NewsController::class, 'destroy']);
+});
 
 // get news by categorye
 Route::get('/admin/get-news-by-category', [FontendController::class, 'getNewsByCategory'])->name('newsByCategory');
@@ -135,6 +136,6 @@ Route::get('/admin/get-news-by-category', [FontendController::class, 'getNewsByC
 // get news by title id
 Route::get('/news/get-news-by-title/{news_id}', [FontendController::class, 'getNewsByTitle'])->name('newsByTitle');
 
-});
+
 
 require __DIR__.'/auth.php';

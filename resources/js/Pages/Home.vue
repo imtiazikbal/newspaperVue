@@ -1,6 +1,6 @@
 
 <script setup>
-import Navbar from '../Components/Header/nav.vue';
+import Navbar from '../Components/Header/NavBar.vue';
 import LeftSideBar_1 from '../Components/LeftSide/LeftSidebar_1.vue';
 import LeftSideBar_2 from '../Components/LeftSide/LeftSidebar_2.vue';
 
@@ -24,7 +24,7 @@ defineProps({
 <div class="container">
     <div class="row">
        <div class="col-md-12">
-        <Navbar :categorys = "category" :featureds = "featured"/>
+        <Navbar/>
        </div>
     </div>
 </div>

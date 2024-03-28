@@ -1,24 +1,29 @@
 <script setup>
+import { Link } from '@inertiajs/vue3';
+
 defineProps({
-    mainnews: Object
+    mainnews:Object
 })
 </script>
 <template>
- <div class="col-12">
-                        <div class="mainNews" v-for="news in mainnews.news" :key="news.id">
-                            <div class="sec-1 d-flex">
-                                <div class="mainImage mr-2">
-                                    <a :href="`/news/get-news-by-title/${news.id}`"><img :src="news.image" alt=""></a>
-                                    <span><a :href="`/news/get-news-by-title/${news.id}`">{{ news.nCaption }}</a></span>
-                                </div> 
-                             <div class="sec-2 mainText">
-                                 <span><a :href="`/news/get-news-by-title/${news.id}`"> {{ news.title }}</a></span>
-                                <h6><a :href="`/news/get-news-by-title/${news.id}`" v-html="news.nBody.substr(0, 150)"></a></h6>
-                                <h6 class="mt-3">১ ঘণ্টা আগে</h6>
-                            </div>      
-                            </div>
-                        </div>
-                    </div>
+                
+                <div v-for="news in mainnews.news" :key="news.id" class="col-md-12 col-12 d-flex justify-content-evenly ">
+                   <Link class="main_section1_image">
+                   <img :src="'/' + news.image"  alt="" width="320px" height="200px"> 
+                   <span class="d-block">{{ news.nCaption }}</span>
+                   </Link>
+                   <Link class="main_section1_content">
+                    <h2> {{ news.title }}</h2> 
+                    <span class="d-block">{{ news.created_at }}</span>
+                   </Link>
+                </div>
+
 </template>
 <style>
+
+.main_section1_image span{
+    font-size: 12px;
+    color: black;
+
+}
 </style>

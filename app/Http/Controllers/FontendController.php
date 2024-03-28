@@ -73,7 +73,7 @@ function Header(){
     function getNewsByTitle(Request $request,News $news){
         $news =  News::where('id',$request->news_id)->with('category','division','district')->first();
         
-        return Inertia::render('NewsDetails/Details',['news' => $news]);
+        return Inertia::render('Details',['news' => $news]);
 
         //return $news;    
     }

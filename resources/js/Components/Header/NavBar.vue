@@ -1,16 +1,13 @@
 <script setup >
 import { Link } from '@inertiajs/vue3'
-defineProps({
-    categorys: Object,
-    featureds: Object
-})
+
 </script>
 <template>
     <!-- Navbar start -->
     
     <b class="screen-overlay"></b>
     <div class="d-sm-none navbar navbar-light shadow-sm sticky-top" style="background:#eee; box-shadow: 0 .2rem .2rem rgba(0,0,0,.15) !important; padding-bottom: 0rem;"> 
-        <a class="navbar-brand" href="index.php"> 
+        <a class="navbar-brand" href=""> 
             <img src="" width="140" class="image-fluid py-1" style="" alt="">
         </a>
         <button class="navbar-toggler navbar-light border-0 mt-1 p-0" type="button" data-toggle="collapse" data-trigger="#navbar_main" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,26 +18,26 @@ defineProps({
         <div class="container d-none d-sm-block">
             <div class="row d-flex justify-content-between py-3" style="color: #ddd;">
                 <div class="col-3 d-flex align-items-center">
-                    <a href="">
+                    <Link href="/">
                                     
     
                         <img src="https://www.kalbela.com/templates/web-view/images/logo.png" width="220" class="image-fluid" style="" alt="">
-                    </a>
+                    </Link>
                 </div>
     
         
              
-  <div   v-for= "news in featureds.news" :key="news.id" class="col-3 d-flex justify-content-center align-items-center">
-    <a href="" class="text-decoration-none">
+  <div v-for="featured in $page.props.featured.news" :key="featured.id"  class="col-3 d-flex justify-content-center align-items-center">
+    <Link :href="`/news/get-news-by-title/${featured.id}`" class="text-decoration-none">
       <div class="row no-gutters">
         <div class="col-8 d-flex align-items-center">
-          <h4 class="titleHead5">{{ news.title }}</h4>
+          <h4 class="titleHead5">{{ featured.title }}</h4>
         </div>
         <div class="col-4">
-          <img :src="news.image" width="80%" class="img-fluid" alt="Responsive image">
+          <img :src="'/' + featured.image" width="80%" class="img-fluid" alt="Responsive image">
         </div>
       </div>
-    </a>
+    </Link>
   </div>
 
 
@@ -75,8 +72,8 @@ defineProps({
                     <!-- Input Cat page start -->			
     
          
-            <li class="nav-item style1stNav" v-for="category in categorys" :key="category.id">
-                        <Link class="nav-link" href="/categorys/index">{{ category.cName }}</Link>
+            <li class="nav-item style1stNav" v-for="category in $page.props.headerData" :key="category.id">
+                        <Link class="nav-link" href="/categorys/index"> {{ category.cName}}</Link>
                     </li>
      
                     
